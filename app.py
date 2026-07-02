@@ -13,7 +13,6 @@ from datetime import datetime
 from urllib.parse import urlparse, urljoin
 
 import aiohttp
-import nest_asyncio
 import streamlit as st
 from bs4 import BeautifulSoup
 from dotenv import load_dotenv
@@ -1464,9 +1463,10 @@ def main():
             log_container = st.empty()
 
             try:
-                import nest_asyncio
-                nest_asyncio.apply()
-                results = asyncio.run(
+                # Bezpieczne uruchamianie asyncio w Streamlit bez nest_asyncio
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
+                results = loop.run_until_complete(
                     run_analysis_pipeline(
                         my_url=my_url.strip(),
                         competitor_urls=comp_list,
