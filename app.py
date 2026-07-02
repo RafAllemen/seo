@@ -683,7 +683,7 @@ Provide a comprehensive Content Gap Analysis. Return ONLY valid JSON:
   "recommendations": ["Strategic recommendation 1", "recommendation 2"]
 }}
 
-Generate exactly 20 content_ideas. Be specific, actionable, and data-driven.
+Generate exactly 12 content_ideas. Be specific, actionable, and data-driven.
 CRITICAL INSTRUCTION: You must write the ENTIRE report (all text fields, summaries, ideas, titles, briefs) in Polish language!"""
 
     try:
