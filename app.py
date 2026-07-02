@@ -19,9 +19,6 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 import os
 
-# Patch event loop for Streamlit compatibility
-nest_asyncio.apply()
-
 # Load .env if present
 load_dotenv()
 
@@ -1467,6 +1464,8 @@ def main():
             log_container = st.empty()
 
             try:
+                import nest_asyncio
+                nest_asyncio.apply()
                 results = asyncio.run(
                     run_analysis_pipeline(
                         my_url=my_url.strip(),
